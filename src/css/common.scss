@@ -1,0 +1,252 @@
+﻿/*! common.css v1.0.0 | by waltermolina for tachuso | GPL V3 License | https://github.com/waltermolina/CommonCSS */
+@import "modules/_variables";
+
+/*#region Lists*/
+$display-list: (
+  none,
+  block,
+  inline-block,
+  inline-table,
+  list-item
+);
+$outlineStyle-list: (
+  none,
+  hidden,
+  dotted,
+  dashed,
+  solid,
+  double,
+  groove,
+  ridge,
+  inset,
+  outset,
+  initial,
+  inherit
+);
+$overflow-list: (
+  auto !important,
+  hidden !important,
+  scroll !important,
+  visible !important,
+  no-content !important,
+  no-display !important
+);
+$position-list: (
+  absolute,
+  relative,
+  fixed,
+  static
+);
+$cursor-list: (
+  pointer,
+  default,
+  not-allowed,
+  crosshair,
+  help,
+  wait
+);
+$fontStyle-list: (
+  normal,
+  italic
+);
+$textTransform-list: (
+  uppercase,
+  lowercase,
+  capitalize,
+  none
+);
+$textAlign-list: (
+  left,
+  right,
+  center,
+  justify,
+  initial,
+  inherit
+);
+$float-list: (
+  left,
+  right,
+  none
+);
+$clear-list: (
+  left,
+  right,
+  both,
+  none
+);
+$verticalAlign-list: (
+  baseline,
+  sub,
+  super,
+  top,
+  middle,
+  bottom,
+  text-bottom
+);
+
+/*#endregion*/
+
+/*#region Mixins*/
+
+@mixin generateList($list, $prefix) {
+  @each $e in $list {
+    .#{$prefix}-#{$e} {
+      #{$prefix}: $e;
+    }
+  }
+}
+
+@mixin getRidOf($property) {
+  $sides-list: (
+     ("left", "h"),
+     ("right", "h"),
+     ("top", "v"),
+     ("bottom", "v")
+  );
+
+  @each $side, $axis in $sides-list {
+    .no-#{$property},
+    .no-#{$property}-#{$axis},
+    .no-#{$property}-#{$side} {
+      #{$property}-#{$side}: 0 !important;
+    }
+  }
+}
+
+@mixin generateSidesPosition($value) {
+  @each $side,
+    $axis in (("left", "horizontal"), ("right", "horizontal"), ("top", "vertical"), ("bottom", "vertical")) {
+    .#{$axis}-#{$value},
+    .#{$side}-#{$value} {
+      #{$side}: #{$value};
+    }
+  }
+}
+
+/*#endregion*/
+
+/*#region Display*/
+@include generateList($display-list, "display");
+/*#endregion*/
+
+/*#region Outline Style*/
+@include generateList($outlineStyle-list, "outline");
+/*#endregion*/
+
+/*#region Overflow*/
+@include generateList($overflow-list, "overflow");
+/*#endregion*/
+
+/*#region Position*/
+@include generateList($position-list, "position");
+/*#endregion*/
+
+/*#region Cursor Types*/
+@include generateList($cursor-list, "cursor");
+/*#endregion*/
+
+/*#region No Selection*/
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/*#endregion*/
+
+/*#region Font Style*/
+@include generateList($fontStyle-list, "font-style");
+/*#endregion*/
+
+/*#region Font Size*/
+@for $i from 10 through 50 {
+  .font-size-#{$i} {
+    font-size: $i/10+rem !important;
+  }
+}
+/*#endregion*/
+
+/*#region Text Transform*/
+@include generateList($textTransform-list, "text-transform");
+/*#endregion*/
+
+/*#region Text Align*/
+@include generateList($textAlign-list, "text-align");
+/*#endregion*/
+
+/*#region Floating*/
+@include generateList($float-list, "float");
+/*#endregion*/
+
+/*#region Clear*/
+@include generateList($clear-list, "clear");
+
+// classic clearfix
+.clearfix,
+.clr {
+  clear: both;
+}
+
+/*#endregion*/
+
+/*#region Vertical Align*/
+@include generateList($verticalAlign-list, "vertical-align");
+/*#endregion*/
+
+/*#region No Border*/
+@include getRidOf("border");
+/*#endregion*/
+
+/*#region No Padding*/
+@include getRidOf("padding");
+/*#endregion*/
+
+/*#region No Margin*/
+@include getRidOf("margin");
+/*#endregion*/
+
+/*#region Sides Position 0 (top, right, bottom & left) */
+@include generateSidesPosition(0);
+/*#endregion*/
+
+/*#region Font weight*/
+@each $name,
+  $value in (("thin", 100), ("extra-light", 200), ("light", 300), ("normal", 400), ("medium", 500), ("semi-bold", 600), ("bold", 700), ("extra-bold", 800), ("ultra-bold", 900)) {
+  .font-weight-#{$name},
+  .font-weight-#{$value} {
+    font-weight: #{$value} !important;
+  }
+}
+/*#endregion*/
+
+/*#region Blur*/
+@each $name,
+  $value in (("xs", $baseUnit*0.25), ("s", $baseUnit*0.5), ("m", $baseUnit), ("l", $baseUnit*2), ("xl", $baseUnit*4), ("xxl", $baseUnit*8)) {
+  .blur-#{$name},
+  .blur-#{$value} {
+    -webkit-filter: blur(#{$value}px);
+  }
+}
+/*#endregion*/
+
+opacity-0 {
+  opacity: 0;
+}
+
+.truncate {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.full-width {
+  width: 100%;
+}
+.full-height {
+  height: 100%;
+}

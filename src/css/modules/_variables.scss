@@ -1,0 +1,23 @@
+﻿//Units
+$minUnit: 1;
+$baseUnit: 4; //4 pixel is base unit. All sizes must be multiples of 4.
+
+//Font Size
+$standardFontSize: 16px;
+$baseFontSize: 10px;
+
+//Font Color
+$baseFontColor: #000;
+
+//Font Family
+$baseFontFamily: "Raleway", sans-serif;
+
+//App Header
+$appHeaderZ: 1000;
+$appHeaderHeight: 3rem;
+$appHeaderFontSize: 1.4rem;
+$appHeaderBg: rgba(0, 0, 0, 0.7);
+$appHeaderColor: #fff;
+
+//Main
+$mainZ: 0;

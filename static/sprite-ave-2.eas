@@ -1,0 +1,109 @@
+﻿{"frames": [
+
+{
+	"filename": "ave_10000",
+	"frame": {"x":0,"y":0,"w":66,"h":40},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":66,"h":40},
+	"sourceSize": {"w":66,"h":40}
+}
+,{
+	"filename": "ave_10001",
+	"frame": {"x":66,"y":0,"w":62,"h":36},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":4,"w":66,"h":40},
+	"sourceSize": {"w":66,"h":40}
+}
+,{
+	"filename": "ave_10002",
+	"frame": {"x":0,"y":40,"w":57,"h":32},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":8,"w":66,"h":40},
+	"sourceSize": {"w":66,"h":40}
+}
+,{
+	"filename": "ave_10003",
+	"frame": {"x":57,"y":40,"w":53,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":10,"w":66,"h":40},
+	"sourceSize": {"w":66,"h":40}
+}
+,{
+	"filename": "ave_10004",
+	"frame": {"x":0,"y":72,"w":52,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":10,"w":66,"h":40},
+	"sourceSize": {"w":66,"h":40}
+}
+,{
+	"filename": "ave_10005",
+	"frame": {"x":52,"y":72,"w":52,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":10,"w":66,"h":40},
+	"sourceSize": {"w":66,"h":40}
+}
+,{
+	"filename": "ave_10006",
+	"frame": {"x":0,"y":102,"w":54,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":10,"w":66,"h":40},
+	"sourceSize": {"w":66,"h":40}
+}
+,{
+	"filename": "ave_10007",
+	"frame": {"x":54,"y":102,"w":56,"h":31},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":9,"w":66,"h":40},
+	"sourceSize": {"w":66,"h":40}
+}
+,{
+	"filename": "ave_10008",
+	"frame": {"x":0,"y":133,"w":59,"h":33},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":7,"w":66,"h":40},
+	"sourceSize": {"w":66,"h":40}
+}
+,{
+	"filename": "ave_10009",
+	"frame": {"x":59,"y":133,"w":61,"h":35},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":5,"w":66,"h":40},
+	"sourceSize": {"w":66,"h":40}
+}
+,{
+	"filename": "ave_10010",
+	"frame": {"x":0,"y":168,"w":64,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":66,"h":40},
+	"sourceSize": {"w":66,"h":40}
+}
+,{
+	"filename": "ave_10011",
+	"frame": {"x":0,"y":0,"w":66,"h":40},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":66,"h":40},
+	"sourceSize": {"w":66,"h":40}
+}],
+"meta": {
+	"app": "Adobe Flash Professional",
+	"version": "14.2.0.20",
+	"Target": "Edge Animate",
+	"Target Version": "4.0",
+	"image": "sprite-ave-2.png",
+	"format": "RGBA8888",
+	"size": {"w":128,"h":256},
+	"scale": "1"
+}
+}

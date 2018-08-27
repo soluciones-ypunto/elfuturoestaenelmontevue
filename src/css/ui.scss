@@ -1,0 +1,437 @@
+﻿/* Common UI 
+ * by Walter Molina
+ * for @tachuso
+ */
+
+@charset "UTF-8";
+
+@import "modules/_functions.scss";
+
+@import "modules/_mixins.scss";
+
+@import "modules/_variables.scss";
+
+@import "modules/_global.scss";
+
+$produce: (
+  mainColor: rgba(72, 104, 74, 1),
+  secondaryColor: rgba(156, 189, 110, 1)
+);
+$agua: (
+  mainColor: rgba(183, 155, 186, 1),
+  secondaryColor: rgba(192, 207, 228, 1)
+);
+$cuida: (
+  mainColor: rgba(78, 105, 147, 1),
+  secondaryColor: rgba(25, 158, 194, 1)
+);
+$comparte: (
+  mainColor: rgba(200, 90, 78, 1),
+  secondaryColor: rgba(213, 135, 102, 1)
+);
+$aprende: (
+  mainColor: rgba(23, 63, 94, 1),
+  secondaryColor: rgba(75, 143, 114, 1)
+);
+
+$sections: (
+  produce: $produce,
+  agua: $agua,
+  cuida: $cuida,
+  comparte: $comparte,
+  aprende: $aprende
+);
+
+@mixin navBgBySection() {
+  @each $section, $color in $sections {
+    &.#{$section} {
+      background-color: transparentize(map-get($color, mainColor), 0.2);
+    }
+  }
+}
+@mixin hamburgerBySection() {
+  @each $section, $color in $sections {
+    &.#{$section} {
+      color: map-get($color, secondaryColor);
+    }
+  }
+}
+::-webkit-scrollbar {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+::-webkit-scrollbar-track {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -moz-transition: background 0.6s;
+  -o-transition: background 0.6s;
+  -webkit-transition: background 0.6s;
+  transition: background 0.6s;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  border: none;
+  background: rgba(0, 0, 0, 0.3);
+  -moz-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  border: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.1);
+}
+html {
+  overflow-y: auto;
+  &.isMobile {
+    .hide-when-is-mobile {
+      display: none;
+    }
+  }
+}
+#app {
+  // @include absoluteFullSize(0,0,0,0);
+  // background: #fff; // overflow: hidden;
+  height: 100%;
+  a {
+    color: #000;
+    &:visited,
+    &:active,
+    &:focus,
+    &:hover {
+      color: #000;
+    }
+  }
+  > #appHeader {
+    // @include absoluteFullSize(0,0,"",0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: $appHeaderBg;
+    height: $appHeaderHeight;
+    color: $appHeaderColor;
+    font-weight: 800;
+    line-height: $appHeaderHeight;
+    text-transform: uppercase;
+    font-size: $appHeaderFontSize;
+    padding: 0;
+    z-index: $appHeaderZ;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    #openMainNav {
+      height: $appHeaderHeight;
+      width: $appHeaderHeight;
+      background: none;
+      border: none;
+      outline: none;
+      color: #fff;
+      padding: 0;
+      line-height: $appHeaderHeight;
+      cursor: pointer;
+      margin-right: 1rem;
+      transition: 0.3s all;
+      font-size: 2rem;
+      transition: 0.6s all;
+      &:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+      @include hamburgerBySection();
+    }
+    > #mainBrand {
+      display: block;
+      height: $appHeaderHeight;
+      color: $appHeaderColor;
+      > img,
+      > span {
+        display: inline;
+        vertical-align: bottom;
+      }
+      > img {
+        margin-right: 1rem;
+      }
+    }
+    > #viewDocumental {
+      color: #fff;
+      padding: 0 2rem 0 1.5rem;
+      text-transform: none;
+      height: $appHeaderHeight;
+      line-height: $appHeaderHeight;
+      transition: 0.3s all;
+      > i {
+        font-size: 2rem;
+        height: $appHeaderHeight;
+        font-weight: normal;
+        float: left;
+      }
+      > span {
+        margin-left: 0.5rem;
+        font-weight: normal;
+        font-size: 1.2rem;
+      }
+      &:hover {
+        background: rgba(255, 0, 0, 0.5);
+      }
+    }
+  }
+  nav#mainNav {
+    position: fixed;
+    top: 0;
+    // $appHeaderHeight;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 900;
+    width: 32rem;
+    padding: 5rem 0;
+    color: #fff;
+    transition: 0.3s all;
+    // overflow-y: auto;
+    backdrop-filter: blur(2px);
+    @include navBgBySection();
+    &.hide {
+      left: -32rem;
+    }
+    &.show {
+      left: 0;
+    }
+    #closeMainNav {
+      position: absolute;
+      cursor: pointer;
+      outline: none;
+      padding: 0;
+      top: 1rem;
+      left: 1rem;
+      height: 4rem;
+      width: 4rem;
+      line-height: 4rem;
+      font-size: 3rem;
+      text-align: center;
+      border: none;
+      background: none;
+      color: #fff;
+    }
+    > #menu {
+      z-index: 10;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow-y: auto;
+      padding: 5rem 0;
+      > ul#pagesLinks {
+        margin: 5rem 0;
+        > li > a {
+          padding: 0 0 0 4rem;
+          display: block;
+          > div {
+            height: 4rem;
+            font-size: 1.4rem;
+            line-height: 4rem;
+            padding: 0;
+            text-transform: uppercase;
+            width: 18rem;
+            transition: 0.3s all;
+            display: block;
+            color: #fff;
+            border-radius: 1rem;
+            border: 0.1rem solid transparent;
+          }
+          &:hover,
+          &.active {
+            > div {
+              border-color: #fff;
+              border-radius: 2rem;
+              padding: 0 2rem;
+              margin-left: -2rem;
+            }
+          }
+          &.active {
+            > div {
+              background: rgba(255, 255, 255, 0.25);
+            }
+          }
+        }
+      }
+      > ul#socialLinks {
+        padding-left: 4rem;
+        > li {
+          display: inline-block;
+          margin-right: 2rem;
+          > a {
+            display: block;
+            width: 3rem;
+            height: 3rem;
+            line-height: 2.6rem;
+            text-align: center;
+            font-size: 2rem;
+            padding: 0;
+            border-radius: 50%;
+            color: #fff;
+            border: 0.2rem solid #fff;
+            transition: 0.3s all;
+            &:hover {
+              background: rgba(255, 255, 255, 0.5);
+            }
+          }
+        }
+      }
+    }
+    button#sonidosDelChacoPlay,
+    button#documentaryPlay {
+      margin: 5rem 1rem 5rem 4rem;
+      background: none;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-size: 1.4rem;
+      padding: 0;
+      > i {
+        display: block;
+        float: left;
+        width: 3rem;
+        height: 3rem;
+        line-height: 2.6rem;
+        text-align: center;
+        font-size: 2rem;
+        padding: 0;
+        border-radius: 50%;
+        color: #fff;
+        border: 0.2rem solid #fff;
+        transition: 0.3s all;
+        cursor: pointer;
+        margin-right: 1rem;
+        &:hover {
+          background: rgba(255, 255, 255, 0.5);
+        }
+      }
+      > span {
+        display: block;
+        float: left;
+        height: 3rem;
+        line-height: 3rem;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+      }
+    }
+    > #navImage {
+      @include absoluteFullSize(0, 0, 0, 0);
+      overflow: hidden;
+      opacity: 0.8;
+      transition: 0.3s all;
+      > img {
+        height: 100%;
+        display: block;
+      }
+      &.hide {
+        opacity: 0;
+      }
+    }
+  }
+  #navOverlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 899;
+    transition: 0.3s all;
+    &.hide {
+      left: -100%;
+      opacity: 0;
+    }
+    &.show {
+      left: 0;
+      opacity: 1;
+    }
+  }
+  main {
+    // @include absoluteFullSize(0,0,0,0);
+    z-index: $mainZ;
+    // overflow: auto;
+    height: 100%;
+    display: block;
+  }
+  footer#appFooter {
+    padding: 5rem 0;
+    .footerContent {
+      max-width: 70rem;
+      margin: 0 auto;
+      img {
+        display: block;
+        width: 50%;
+        float: left;
+      }
+      p {
+        width: calc(50% - 4rem);
+        float: left;
+        margin-left: 4rem;
+        font-size: 1.2rem;
+        color: #432404;
+      }
+    }
+  }
+}
+#background {
+  @include absoluteFullSize(0, 0, 0, 0);
+}
+@media screen and (max-width: 768px) {
+  .hide-mobile-medium {
+    display: none !important;
+  }
+  #app {
+    footer#appFooter {
+      padding: 5rem 3rem;
+    }
+    .footerContent {
+      p {
+        margin-top: 0;
+      }
+    }
+  }
+}
+@media screen and (min-width: 1120px) {
+  #app {
+    footer#appFooter {
+      padding-left: 32rem;
+    }
+    #openMainNav {
+      margin-left: -3rem;
+      &.home {
+        margin-left: 0;
+      }
+    }
+    #navOverlay {
+      display: none;
+    }
+    nav#mainNav {
+      left: 0 !important;
+    }
+    nav#mainNav.hide.home {
+      left: -32rem !important;
+    }
+  }
+}
+@media screen and (max-width: 425px) {
+  .hide-mobile-small {
+    display: none !important;
+  }
+  .footerContent {
+    img {
+      float: none !important;
+      width: 100% !important;
+    }
+    p {
+      float: none !important;
+      width: 100% !important;
+      margin: 2rem 0 0 0 !important;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+﻿//Default styles
+html {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: $standardFontSize;
+    font-size: calcPerc($baseFontSize,$standardFontSize) !important;
+    height: 100%;
+
+    .touch-device {
+        /*activate the GPU for compositing each page */
+        -webkit-transform: translate3d(0, 0, 0);
+        -ms-touch-action: none;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    position: relative;
+    height: 100%;
+    font-family: $baseFontFamily;
+    font-size: inherit;
+}
+
+*, *:before, *:after {
+    -moz-box-sizing: inherit;
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+ul {
+    &.browser-default {
+        list-style-type: initial;
+
+        li {
+            list-style-type: initial;
+        }
+    }
+
+    list-style-type: none;
+
+    li {
+        list-style-type: none;
+    }
+}
+
+a {
+    color: $baseFontColor;
+    text-decoration: none;
+    // Gets rid of tap active state
+    -webkit-tap-highlight-color: transparent;
+}
+
+// Images
+img.responsive-img,
+video.responsive-video {
+    max-width: 100%;
+    height: auto;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.base-font {
+    font-family: $baseFontFamily;
+
+}

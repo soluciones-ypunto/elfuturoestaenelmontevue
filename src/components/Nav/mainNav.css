@@ -1,0 +1,95 @@
+nav#mainNav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: #000;
+  z-index: 900;
+  width: 32rem;
+  padding: 5rem 0;
+  color: #fff;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+nav#mainNav.hide {
+  left: -32rem;
+}
+
+nav#mainNav.show {
+  left: 0;
+}
+
+nav#mainNav #closeMainNav {
+  position: absolute;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  top: 1rem;
+  left: 1rem;
+  height: 4rem;
+  width: 4rem;
+  line-height: 4rem;
+  font-size: 3rem;
+  text-align: center;
+  border: none;
+  background: none;
+  color: #fff;
+}
+
+nav#mainNav > ul#pagesLinks {
+  margin: 5rem 0;
+}
+
+nav#mainNav > ul#pagesLinks > li > a {
+  padding: 0 0 0 4rem;
+  display: block;
+}
+
+nav#mainNav > ul#pagesLinks > li > a > div {
+  height: 4rem;
+  font-size: 1.4rem;
+  line-height: 4rem;
+  padding: 0;
+  text-transform: uppercase;
+  width: 12rem;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  display: block;
+  color: #fff;
+}
+
+nav#mainNav > ul#pagesLinks > li > a:hover > div, nav#mainNav > ul#pagesLinks > li > a.active > div {
+  border: 0.1rem solid #fff;
+  border-radius: 2rem;
+  padding: 0 2rem;
+}
+
+nav#mainNav > ul#socialLinks {
+  padding-left: 4rem;
+}
+
+nav#mainNav > ul#socialLinks > li {
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+nav#mainNav > ul#socialLinks > li > a {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  line-height: 2.6rem;
+  text-align: center;
+  font-size: 2rem;
+  padding: 0;
+  border-radius: 50%;
+  color: #fff;
+  border: 0.2rem solid #fff;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+nav#mainNav > ul#socialLinks > li > a:hover {
+  color: green;
+  border-color: green;
+}
+/*# sourceMappingURL=mainNav.css.map */

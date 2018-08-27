@@ -1,0 +1,346 @@
+$heroH: 43rem;
+$produce: (
+  mainColor: rgba(72, 104, 74, 1),
+  secondaryColor: rgba(156, 189, 110, 1),
+  heroBgColor: rgba(72, 104, 74, 0.6),
+  heroBgColorHover: rgba(72, 104, 74, 0.9),
+  postHeaderBg: rgba(72, 104, 74, 0.8),
+  postHeaderBgHover: rgba(72, 104, 74, 0.9),
+  mYWTBg: rgba(72, 104, 74, 0.3)
+);
+$agua: (
+  mainColor: rgba(183, 155, 186, 1),
+  secondaryColor: rgba(192, 207, 228, 1),
+  heroBgColor: rgba(183, 155, 186, 0.6),
+  heroBgColorHover: rgba(183, 155, 186, 0.9),
+  postHeaderBg: rgba(183, 155, 186, 0.8),
+  postHeaderBgHover: rgba(183, 155, 186, 0.9),
+  mYWTBg: rgba(183, 155, 186, 0.3)
+);
+$cuida: (
+  mainColor: rgba(78, 105, 147, 1),
+  secondaryColor: rgba(25, 158, 194, 1),
+  heroBgColor: rgba(78, 105, 147, 0.6),
+  heroBgColorHover: rgba(78, 105, 147, 0.9),
+  postHeaderBg: rgba(78, 105, 147, 0.8),
+  postHeaderBgHover: rgba(78, 105, 147, 0.9),
+  mYWTBg: rgba(78, 105, 147, 0.3)
+);
+$comparte: (
+  mainColor: rgba(200, 90, 78, 1),
+  secondaryColor: rgba(213, 135, 102, 1),
+  heroBgColor: rgba(200, 90, 78, 0.6),
+  heroBgColorHover: rgba(200, 90, 78, 0.9),
+  postHeaderBg: rgba(200, 90, 78, 0.8),
+  postHeaderBgHover: rgba(200, 90, 78, 0.9),
+  mYWTBg: rgba(200, 90, 78, 0.3)
+);
+$aprende: (
+  mainColor: rgba(23, 63, 94, 1),
+  secondaryColor: rgba(75, 143, 114, 1),
+  heroBgColor: rgba(23, 63, 94, 0.6),
+  heroBgColorHover: rgba(23, 63, 94, 0.9),
+  postHeaderBg: rgba(23, 63, 94, 0.8),
+  postHeaderBgHover: rgba(23, 63, 94, 0.9),
+  mYWTBg: rgba(23, 63, 94, 0.3)
+);
+
+$sections: (
+  produce: $produce,
+  agua: $agua,
+  cuida: $cuida,
+  comparte: $comparte,
+  aprende: $aprende
+);
+
+@mixin colorsBySection() {
+  @each $section, $color in $sections {
+    &.#{$section} {
+      > header {
+        background-color: map-get($color, mainColor);
+      }
+      #categoryBrand {
+        background: map-get($color, postHeaderBg);
+      }
+      #maybeYouWantThis {
+        background: map-get($color, mYWTBg);
+      }
+    }
+  }
+}
+#PostContainer {
+  > header {
+    height: $heroH;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+    > h1 {
+      font-size: 4rem;
+      margin: 15rem 0 3rem 0;
+      line-height: 1.2em;
+      font-weight: 700;
+    }
+    > h2 {
+      font-size: 1.6rem;
+      margin: 0;
+      font-weight: 400;
+    }
+    > h1,
+    h2 {
+      position: relative;
+      width: 70rem;
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      color: #fff;
+      text-align: center;
+      z-index: 10;
+      text-shadow: 0rem 0rem 1rem #000;
+    }
+    > img.postCover {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      -o-object-fit: cover;
+      object-fit: cover;
+      object-position: 50% 50%;
+      z-index: 5;
+      opacity: 0.6;
+    }
+  }
+  #categoryBrand {
+    height: 4rem;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    > img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      -o-object-fit: cover;
+      object-fit: cover;
+      object-position: 50% 50%;
+      z-index: 5;
+    }
+  }
+  > article {
+    width: 70rem;
+    max-width: 80%;
+    margin: 10rem auto;
+    box-sizing: content-box;
+    > p {
+      font-size: 1.6rem;
+      line-height: 1.5;
+      margin: 0 0 2em 0;
+      > iframe {
+        width: 100% !important;
+      }
+    }
+    img.size-full {
+      width: 100%;
+      height: auto;
+    }
+    p.wp-caption-text {
+      text-align: center;
+      font-style: italic;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: rgba(0, 0, 0, 0.7);
+    }
+  }
+  #maybeYouWantThis {
+    padding: 5rem 0;
+    background: rgba(166, 210, 113, 0.3);
+    > header {
+      max-width: 70rem;
+      margin: 0 auto 3rem;
+      h1 {
+        font-size: 4rem;
+        color: #7f7f7f;
+        font-weight: 400;
+        margin: 0;
+      }
+    }
+    .postsList {
+      max-width: 70rem;
+      margin: 0 auto;
+    }
+    .post {
+      width: 22rem;
+      overflow: hidden;
+      background: #fff;
+      padding: 2.5rem;
+      margin: 0 2rem 0 0;
+      float: left;
+      header {
+        margin: 0 0 2rem 0;
+        h1,
+        h2 {
+          margin: 0;
+        }
+        h1 {
+          text-transform: uppercase;
+          font-size: 1.6rem;
+          font-weight: 700;
+        }
+        h2 {
+          font-size: 1.4rem;
+          font-weight: 300;
+        }
+      }
+      .postCover {
+        position: relative;
+        width: 17rem;
+        height: 17rem;
+        overflow: hidden;
+        > img {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          -o-object-fit: cover;
+          object-fit: cover;
+          object-position: 50% 50%;
+        }
+      }
+    }
+    .post:nth-child(3n + 0) {
+      margin-right: 0;
+    }
+  }
+  // LOADING FXs
+  #loadingHeader {
+    height: $heroH;
+    background-color: #eee;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    box-shadow: inset 0 0 3rem 0rem rgba(0, 0, 0, 0.2);
+    h1,
+    h2 {
+      background: #ddd;
+      .animated-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    }
+    h1 {
+      max-width: 40%;
+      height: 4rem;
+    }
+    h2 {
+      height: 1.6rem;
+    }
+  }
+  #loadingArticle {
+    position: absolute;
+    top: $heroH;
+    margin: 10rem auto;
+    height: 20rem;
+    left: 0;
+    right: 0;
+    > p {
+      height: 1.4rem;
+      background: #ddd;
+      &:first-child {
+        width: 80%;
+      }
+      &:nth-child(2) {
+        width: 100%;
+      }
+      &:nth-child(3) {
+        width: 90%;
+      }
+      > span {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  @keyframes placeHolderShimmer {
+    0% {
+      background-position: -50% 0;
+    }
+    100% {
+      background-position: 150% 0;
+    }
+  }
+  .animated-background {
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: placeHolderShimmer;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #ddd 0%, #ccc 50%, #ddd 100%);
+    background-size: 25% 100%;
+    background-repeat-x: no-repeat;
+  }
+  @include colorsBySection();
+}
+@media screen and (min-width: 1120px) {
+  // NAV PINNED
+  #PostContainer {
+    > header {
+      padding-left: 32rem;
+    }
+    > article {
+      padding-left: 32rem;
+    }
+    #maybeYouWantThis {
+      padding-left: 32rem;
+    }
+  }
+}
+@media screen and (max-width: 769px) {
+  #PostContainer {
+    #maybeYouWantThis {
+      > header {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      .postsList {
+        max-width: none;
+        margin: 0;
+        padding: 0 2rem;
+        .post {
+          margin: 0 2rem 2rem 0;
+          width: calc((100% - 4rem) / 2);
+          header {
+            margin: 0;
+          }
+          .postCover {
+            display: none;
+          }
+        }
+        .post:nth-child(3n) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 425px) {
+  #PostContainer {
+    .postsList {
+      .post {
+        float: none !important;
+        width: 100% !important;
+        margin: 0 0 2rem 0 !important;
+        .postCover {
+          height: 20rem;
+        }
+      }
+      .post:nth-child(2n + 1) {
+        margin-right: 0;
+      }
+    }
+  }
+}

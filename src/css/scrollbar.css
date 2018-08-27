@@ -1,0 +1,31 @@
+::-webkit-scrollbar {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 0;
+  -webkit-transition: background .6s;
+  transition: background .6s;
+}
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  border: none;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-transition: all .6s;
+  transition: all .6s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  border: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.1);
+}
+/*# sourceMappingURL=scrollbar.css.map */
