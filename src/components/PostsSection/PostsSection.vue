@@ -5,7 +5,7 @@
         </transition>
         <section id="hero">
           <div id="heroContent" >
-            
+
             <transition name="fade" enter-active-class="fadeIn" leave-active-class="fadeOut">
               <router-link v-if="!loading.pageInfo" :to="{name: 'Post', params: {category: $route.params.category, type: 'page', year: pageInfo.datetime.getFullYear(), month: (pageInfo.datetime.getMonth()+1), slug: pageInfo.slug}}">
                 <article >
@@ -15,7 +15,7 @@
                 </article>
               </router-link>
             </transition>
-            
+
             <transition name="fade" enter-active-class="fadeIn" leave-active-class="fadeOut">
                 <article id="loadingPageInfo" v-if="loading.pageInfo" class="loading-box animated-background">
                     <div class="top"></div>
@@ -26,7 +26,7 @@
                 </article>
             </transition>
           </div>
-            
+
             <transition name="fade" enter-active-class="fadeIn" leave-active-class="fadeOut">
                 <img class="heroCover" :src="pageInfo._embedded['wp:featuredmedia'][0].source_url" v-if="!loading.pageInfo">
             </transition>
@@ -36,7 +36,7 @@
                 <img :src="categoryBrand.image"/>
             </section>
         </transition>
-        
+
         <section id="posts">
             <transition name="fade" enter-active-class="fadeIn" leave-active-class="fadeOut">
                 <article id="loadingFeatured" v-if="loading.featuredPost" class="loading-box">
@@ -106,12 +106,12 @@
                                 <h1>{{post.title.rendered}}</h1>
                                 <h2 v-if="post.tags.length > 0">{{post._embedded['wp:term'][1][0].name}}</h2>
                             </header>
-                            
+
                         <!--</a>-->
                         </router-link>
                     </article>
                 </transition-group>
-                
+
                 <div class="clr"></div>
             </div>
 
@@ -350,5 +350,5 @@ export default {
 </script>
 
 <style scoped>
-@import "postsSection.min.css";
+@import "PostsSection.min.css";
 </style>
