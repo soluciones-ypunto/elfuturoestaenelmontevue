@@ -1,0 +1,588 @@
+$heroH: 43rem;
+
+$produce: (
+  mainColor: rgba(72, 104, 74, 1),
+  secondaryColor: rgba(156, 189, 110, 1),
+  heroBgColor: rgba(72, 104, 74, 0.9),
+  heroBgColorHover: rgba(72, 104, 74, 1),
+  postHeaderBg: rgba(72, 104, 74, 0.8),
+  postHeaderBgHover: rgba(72, 104, 74, 0.9),
+  mYWTBg: rgba(72, 104, 74, 0.3)
+);
+$agua: (
+  mainColor: rgba(183, 155, 186, 1),
+  secondaryColor: rgba(192, 207, 228, 1),
+  heroBgColor: rgba(183, 155, 186, 0.9),
+  heroBgColorHover: rgba(183, 155, 186, 1),
+  postHeaderBg: rgba(183, 155, 186, 0.8),
+  postHeaderBgHover: rgba(183, 155, 186, 0.9),
+  mYWTBg: rgba(183, 155, 186, 0.3)
+);
+$cuida: (
+  mainColor: rgba(78, 105, 147, 1),
+  secondaryColor: rgba(25, 158, 194, 1),
+  heroBgColor: rgba(78, 105, 147, 0.9),
+  heroBgColorHover: rgba(78, 105, 147, 1),
+  postHeaderBg: rgba(78, 105, 147, 0.8),
+  postHeaderBgHover: rgba(78, 105, 147, 0.9),
+  mYWTBg: rgba(78, 105, 147, 0.3)
+);
+$comparte: (
+  mainColor: rgba(200, 90, 78, 1),
+  secondaryColor: rgba(213, 135, 102, 1),
+  heroBgColor: rgba(200, 90, 78, 0.9),
+  heroBgColorHover: rgba(200, 90, 78, 1),
+  postHeaderBg: rgba(200, 90, 78, 0.8),
+  postHeaderBgHover: rgba(200, 90, 78, 0.9),
+  mYWTBg: rgba(200, 90, 78, 0.3)
+);
+$aprende: (
+  mainColor: rgba(23, 63, 94, 1),
+  secondaryColor: rgba(75, 143, 114, 1),
+  heroBgColor: rgba(23, 63, 94, 0.9),
+  heroBgColorHover: rgba(23, 63, 94, 1),
+  postHeaderBg: rgba(23, 63, 94, 0.8),
+  postHeaderBgHover: rgba(23, 63, 94, 0.9),
+  mYWTBg: rgba(23, 63, 94, 0.3)
+);
+
+$sections: (
+  produce: $produce,
+  agua: $agua,
+  cuida: $cuida,
+  comparte: $comparte,
+  aprende: $aprende
+);
+
+@mixin colorsBySection() {
+  @each $section, $color in $sections {
+    &.#{$section} {
+      #hero {
+        #heroContent {
+          > a {
+            background: map-get($color, heroBgColor);
+            &:hover {
+              background: map-get($color, heroBgColorHover);
+            }
+            > article {
+              h1,
+              .readMore {
+                color: map-get($color, secondaryColor);
+              }
+            }
+          }
+        }
+      }
+      #categoryBrand {
+        background: map-get($color, postHeaderBg);
+      }
+      #posts {
+        .post {
+          header {
+            background: map-get($color, postHeaderBg);
+          }
+          .showMap {
+            background: map-get($color, secondaryColor);
+          }
+          > a:hover {
+            header {
+              background: map-get($color, postHeaderBgHover);
+            }
+          }
+        }
+      }
+      #newestPosts {
+        background: map-get($color, mYWTBg);
+      }
+      #loadingHero,
+      .loading-box {
+        background: map-get($color, secondaryColor);
+      }
+      .animated-background {
+        background: map-get($color, secondaryColor);
+        background: linear-gradient(
+          to right,
+          map-get($color, secondaryColor) 0%,
+          map-get($color, mainColor) 50%,
+          map-get($color, secondaryColor) 100%
+        );
+        background-size: 25% 100%;
+        background-repeat-x: no-repeat;
+      }
+    }
+  }
+}
+#PostsSectionContainer {
+  #hero {
+    height: $heroH;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+    > img.heroCover {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      -o-object-fit: cover;
+      object-fit: cover;
+      object-position: 50% 50%;
+      z-index: 5;
+    }
+    > #heroContent {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: 8;
+      > a {
+        position: relative;
+        display: block;
+        z-index: 10;
+        left: calc((100% - 70rem) / 2);
+        top: 8rem;
+        max-width: 35rem;
+        max-height: 30rem;
+        background: rgba(74, 107, 76, 0.6);
+        transition: 0.3s all;
+        &:hover {
+          background: rgba(127, 127, 127, 0.56);
+        }
+        > article {
+          display: block;
+          padding: 2rem;
+          h1 {
+            color: #a6d271;
+            font-size: 4rem;
+            margin: 0 0 0.5rem 0;
+            line-height: 4rem;
+            font-weight: 700;
+          }
+          p {
+            font-size: 1.4rem;
+            color: #fff;
+          }
+          > .readMore {
+            display: block;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            color: #a6d271;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+  #categoryBrand {
+    height: 4rem;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    > img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      -o-object-fit: cover;
+      object-fit: cover;
+      object-position: 50% 50%;
+      z-index: 5;
+    }
+  }
+  #posts {
+    padding: 10rem 0 0;
+    .post {
+      position: relative;
+      margin: 0 0 4rem 0;
+      .showMap {
+        position: absolute;
+        cursor: pointer;
+        bottom: 2rem;
+        right: 1rem;
+        background: #a6d271;
+        border: none;
+        font-size: 2.5rem;
+        color: #fff;
+        line-height: 3.5rem;
+        text-align: center;
+        height: 3.5rem;
+        width: 3.4rem;
+        margin-top: calc(3.5rem / -2);
+        padding: 0;
+        border-radius: 50%;
+        outline: none;
+        z-index: 11;
+      }
+      .postCover {
+        height: 38rem;
+        overflow: hidden;
+        position: relative;
+        .postOverlay {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(255, 255, 255, 0.3);
+          background: -moz-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.5) 0%,
+            rgba(255, 255, 255, 0) 100%
+          );
+          background: -webkit-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.5) 0%,
+            rgba(255, 255, 255, 0) 100%
+          );
+          background: linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.5) 0%,
+            rgba(255, 255, 255, 0) 100%
+          );
+          filter: progid:DXImageTransform.Microsoft.gradient(
+              startColorstr="#33ffffff",
+              endColorstr="#00ffffff",
+              GradientType=1
+            );
+          z-index: 10;
+          opacity: 0;
+          transition: 0.3s all;
+        }
+        > img {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          -o-object-fit: cover;
+          object-fit: cover;
+          object-position: 50% 50%;
+        }
+      }
+      header {
+        background: rgb(74, 107, 76);
+        // #4A6B4C; // position: absolute; // bottom: 0;
+        width: 100%;
+        display: block;
+        padding: 1rem 5.5rem 3rem 1rem;
+        z-index: 10;
+        transition: 1s all;
+        h1,
+        h2 {
+          color: #fff;
+          margin: 0;
+        }
+        h1 {
+          text-transform: uppercase;
+          font-size: 1.6rem;
+          font-weight: 700;
+        }
+        h2 {
+          font-size: 1.4rem;
+          font-weight: 300;
+        }
+      }
+      > a:hover {
+        .postCover .postOverlay {
+          opacity: 1;
+        }
+      }
+    }
+    #featured {
+      max-width: 70rem !important;
+      margin: 0 auto 4rem;
+    }
+    .postsList {
+      max-width: 70rem;
+      margin: 0 auto;
+      .post {
+        float: left;
+        width: 33rem;
+        .postCover {
+          height: 20rem;
+        }
+      }
+      .post:nth-child(2n + 1) {
+        margin-right: 4rem;
+      }
+    }
+  }
+  #newestPosts {
+    padding: 5rem 0;
+    background: rgba(166, 210, 113, 0.3);
+    > header {
+      max-width: 70rem;
+      margin: 0 auto 3rem;
+      h1 {
+        font-size: 4rem;
+        color: #7f7f7f;
+        font-weight: 400;
+        margin: 0;
+      }
+    }
+    .postsList {
+      max-width: 70rem;
+      margin: 0 auto;
+    }
+    .post {
+      width: 22rem;
+      overflow: hidden;
+      background: #fff;
+      padding: 2.5rem;
+      margin: 0 2rem 0 0;
+      float: left;
+      header {
+        margin: 0 0 2rem 0;
+        h1,
+        h2 {
+          margin: 0;
+        }
+        h1 {
+          text-transform: uppercase;
+          font-size: 1.6rem;
+          font-weight: 700;
+        }
+        h2 {
+          font-size: 1.4rem;
+          font-weight: 300;
+        }
+      }
+      .postCover {
+        position: relative;
+        width: 17rem;
+        height: 17rem;
+        overflow: hidden;
+        > img {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          -o-object-fit: cover;
+          object-fit: cover;
+          object-position: 50% 50%;
+        }
+      }
+    }
+    .post:nth-child(3n + 0) {
+      margin-right: 0;
+    }
+  }
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
+  // LOADING FXs
+  #loadingHero {
+    height: $heroH;
+    background-color: #eee;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    box-shadow: inset 0 0 3rem 0rem rgba(0, 0, 0, 0.2);
+  }
+  #loadingPageInfo {
+    position: relative;
+    z-index: 10;
+    left: calc((100% - 70rem) / 2);
+    top: 8rem;
+    width: 35rem;
+    height: 30rem;
+  }
+  #loadingFeatured {
+    max-width: 70rem !important;
+    margin: 0 auto 4rem;
+    height: 20rem;
+    position: relative;
+  }
+  .commonPostLoading {
+    width: 33rem;
+    overflow: hidden;
+    height: 20rem;
+    margin-bottom: 10rem;
+    float: left;
+    position: relative;
+    &:nth-child(2n + 1) {
+      margin-right: 4rem;
+    }
+  }
+  .loading-box {
+    background: #eee;
+    box-shadow: 0 0 3rem 0rem rgba(0, 0, 0, 0.2);
+    transition: 0.3s all;
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+    }
+    .top {
+      position: absolute;
+      top: 0;
+      height: 2rem;
+      width: 100%;
+      background: #fff;
+    }
+    .middle {
+      position: absolute;
+      top: 6rem;
+      height: 2rem;
+      width: 100%;
+      background: #fff;
+    }
+    .bottom {
+      position: absolute;
+      top: 10rem;
+      bottom: 0;
+      width: 100%;
+      background: #fff;
+    }
+    .left {
+      position: absolute;
+      top: 0rem;
+      bottom: 0;
+      width: 2rem;
+      left: 0;
+      background: #fff;
+    }
+    .right {
+      position: absolute;
+      top: 0rem;
+      bottom: 0;
+      right: 0;
+      width: 2rem;
+      background: #fff;
+    }
+    .right2 {
+      position: absolute;
+      top: 7rem;
+      bottom: 0;
+      right: 0;
+      width: 5rem;
+      background: #fff;
+    }
+  }
+  @keyframes placeHolderShimmer {
+    0% {
+      background-position: -50% 0;
+    }
+    100% {
+      background-position: 150% 0;
+    }
+  }
+  .animated-background {
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: placeHolderShimmer;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #eee 0%, #ddd 50%, #eee 100%);
+    background-size: 25% 100%;
+    background-repeat-x: no-repeat;
+  }
+  // Get special colors by section
+  @include colorsBySection();
+}
+@media screen and (min-width: 1120px) {
+  // NAV PINNED
+  #PostsSectionContainer {
+    #hero {
+      > #heroContent {
+        padding-left: 32rem;
+        > a {
+          // left: calc(32rem + 4rem);
+        }
+      }
+    }
+    #posts,
+    #newestPosts {
+      padding-left: 32rem;
+    }
+  }
+}
+@media screen and (max-width: 769px) {
+  #PostsSectionContainer {
+    #hero {
+      > #heroContent {
+        > a {
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+        }
+      }
+    }
+    #loadingPageInfo {
+      position: absolute;
+      z-index: 10;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+    #posts {
+      padding: 0;
+      #featured {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 0 2rem;
+        .showMap {
+          right: 2rem;
+        }
+        a {
+          header {
+            padding: 1rem 6.5rem 3rem 2rem;
+          }
+        }
+        .postCover {
+          height: 20rem;
+        }
+      }
+    }
+    .postsList {
+      max-width: none;
+      margin: 0;
+      padding: 0 2rem;
+      .post {
+        width: calc((100% - 4rem) / 2) !important;
+        margin: 0 2rem 2rem 0 !important;
+        .postCover {
+          height: 20rem;
+        }
+      }
+      .post:nth-child(2n + 1) {
+        margin-right: 0;
+      }
+    }
+    #newestPosts {
+      > header {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      .post {
+        header {
+          margin: 0;
+        }
+        .postCover {
+          display: none;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 425px) {
+  #PostsSectionContainer {
+    .postsList {
+      .post {
+        float: none !important;
+        width: 100% !important;
+        margin: 0 0 2rem 0 !important;
+        .postCover {
+          height: 20rem;
+        }
+      }
+      .post:nth-child(2n + 1) {
+        margin-right: 0;
+      }
+    }
+  }
+}

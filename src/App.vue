@@ -10,7 +10,7 @@
         <span>El Futuro está en el Monte</span>
         <div class="clr"></div>
       </router-link>
-      <router-link to="/documental" id="viewDocumental" class="float-right hide-mobile-small"><i class="mdi mdi-youtube"></i><span class="hide-mobile-medium">Mirá el documental</span></router-link>
+      <!--router-link to="/documental" id="viewDocumental" class="float-right hide-mobile-small"><i class="mdi mdi-youtube"></i><span class="hide-mobile-medium">Mirá el documental</span></router-link-->
       <div class="clr"></div>
     </header>
     <nav id="mainNav" v-bind:class="[nav.show ? 'show' : 'hide', nav.pin? 'pinned': '', nav.classByRoute]">
@@ -18,13 +18,14 @@
       <div id="menu">
         <ul id="pagesLinks" class="no-padding">
           <li><router-link to="/"><div>Home</div></router-link></li>
-          <li><router-link to="/documental"><div>Documental</div></router-link></li>
+          <!--li><router-link to="/documental"><div>Documental</div></router-link></li-->
+          <li><router-link :to="{name: 'Category', params: {category: 'produce'}}"><div>Produce</div></router-link></li>
           <li><router-link :to="{name: 'Category', params: {category: 'cuida'}}"><div>Cuida</div></router-link></li>
           <li><router-link :to="{name: 'Category', params: {category: 'comparte'}}"><div>Comparte</div></router-link></li>
           <li><router-link :to="{name: 'Category', params: {category: 'aprende'}}"><div>Aprende</div></router-link></li>
-          <li><router-link :to="{name: 'Category', params: {category: 'produce'}}"><div>Produce</div></router-link></li>
-          <li><router-link :to="{name: 'Category', params: {category: 'agua'}}"><div>Agua</div></router-link></li>
-
+          <li style="height: 30px">&nbsp;</li>
+          <!--li><router-link :to="{name: 'Category', params: {category: 'agua'}}"><div>Agua</div></router-link></li-->
+          <li><router-link :to="{name: 'Especial', params: {category: 'integran'}}"><div>IMPULSAN</div></router-link></li>
         </ul>
         <ul id="socialLinks" class="no-margin socialLinks">
           <li><a href="https://facebook.com/futurodelmonte" target="_blank"><i class="mdi mdi-facebook"></i></a></li>

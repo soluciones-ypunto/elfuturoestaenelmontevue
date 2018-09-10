@@ -4,6 +4,7 @@ import Home from '@/components/Home/Home'
 import TreeHome from '@/components/TreeHome/TreeHome'
 import Documental from '@/components/Documental/Documental'
 import PostsSection from '@/components/PostsSection/PostsSection'
+import PostsEspecial from '@/components/PostEspecial/PostsEspecial'
 import Post from '@/components/Post/Post'
 
 Vue.use(Router)
@@ -16,7 +17,7 @@ export default new Router({
     if (savedPosition) {
       return savedPosition
     } else {
-      return { x: 0, y: 0 }
+      return {x: 0, y: 0}
     }
   },
   routes: [
@@ -53,6 +54,20 @@ export default new Router({
       meta: {
         nav: {
           class: 'home',
+          image: '',
+          show: false,
+          pin: false
+        }
+      }
+    },
+    {
+      path: '/integran',
+      name: 'Especial',
+      component: PostsEspecial,
+      props: true,
+      meta: {
+        nav: {
+          class: '',
           image: '',
           show: false,
           pin: false

@@ -1,0 +1,739 @@
+#PostsSectionContainer #hero {
+  height: 43rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+}
+
+#PostsSectionContainer #hero > img.heroCover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+  z-index: 5;
+}
+
+#PostsSectionContainer #hero > #heroContent {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 8;
+}
+
+#PostsSectionContainer #hero > #heroContent > a {
+  position: relative;
+  display: block;
+  z-index: 10;
+  left: calc((100% - 70rem) / 2);
+  top: 8rem;
+  max-width: 35rem;
+  max-height: 30rem;
+  background: rgba(74, 107, 76, 0.6);
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+#PostsSectionContainer #hero > #heroContent > a:hover {
+  background: rgba(127, 127, 127, 0.56);
+}
+
+#PostsSectionContainer #hero > #heroContent > a > article {
+  display: block;
+  padding: 2rem;
+}
+
+#PostsSectionContainer #hero > #heroContent > a > article h1 {
+  color: #a6d271;
+  font-size: 4rem;
+  margin: 0 0 0.5rem 0;
+  line-height: 4rem;
+  font-weight: 700;
+}
+
+#PostsSectionContainer #hero > #heroContent > a > article p {
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+#PostsSectionContainer #hero > #heroContent > a > article > .readMore {
+  display: block;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: #a6d271;
+  font-weight: 700;
+}
+
+#PostsSectionContainer #categoryBrand {
+  height: 4rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+#PostsSectionContainer #categoryBrand > img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+  z-index: 5;
+}
+
+#PostsSectionContainer #posts {
+  padding: 10rem 0 0;
+}
+
+#PostsSectionContainer #posts .post {
+  position: relative;
+  margin: 0 0 4rem 0;
+}
+
+#PostsSectionContainer #posts .post .showMap {
+  position: absolute;
+  cursor: pointer;
+  bottom: 2rem;
+  right: 1rem;
+  background: #a6d271;
+  border: none;
+  font-size: 2.5rem;
+  color: #fff;
+  line-height: 3.5rem;
+  text-align: center;
+  height: 3.5rem;
+  width: 3.4rem;
+  margin-top: calc(3.5rem / -2);
+  padding: 0;
+  border-radius: 50%;
+  outline: none;
+  z-index: 11;
+}
+
+#PostsSectionContainer #posts .post .postCover {
+  height: 38rem;
+  overflow: hidden;
+  position: relative;
+}
+
+#PostsSectionContainer #posts .post .postCover .postOverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.3);
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#33ffffff", endColorstr="#00ffffff", GradientType=1 );
+  z-index: 10;
+  opacity: 0;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+#PostsSectionContainer #posts .post .postCover > img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+}
+
+#PostsSectionContainer #posts .post header {
+  background: #4a6b4c;
+  width: 100%;
+  display: block;
+  padding: 1rem 5.5rem 3rem 1rem;
+  z-index: 10;
+  -webkit-transition: 1s all;
+  transition: 1s all;
+}
+
+#PostsSectionContainer #posts .post header h1,
+#PostsSectionContainer #posts .post header h2 {
+  color: #fff;
+  margin: 0;
+}
+
+#PostsSectionContainer #posts .post header h1 {
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+#PostsSectionContainer #posts .post header h2 {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+#PostsSectionContainer #posts .post > a:hover .postCover .postOverlay {
+  opacity: 1;
+}
+
+#PostsSectionContainer #posts #featured {
+  max-width: 70rem !important;
+  margin: 0 auto 4rem;
+}
+
+#PostsSectionContainer #posts .postsList {
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+#PostsSectionContainer #posts .postsList .post {
+  float: left;
+  width: 33rem;
+}
+
+#PostsSectionContainer #posts .postsList .post .postCover {
+  height: 20rem;
+}
+
+#PostsSectionContainer #posts .postsList .post:nth-child(2n + 1) {
+  margin-right: 4rem;
+}
+
+#PostsSectionContainer #newestPosts {
+  padding: 5rem 0;
+  background: rgba(166, 210, 113, 0.3);
+}
+
+#PostsSectionContainer #newestPosts > header {
+  max-width: 70rem;
+  margin: 0 auto 3rem;
+}
+
+#PostsSectionContainer #newestPosts > header h1 {
+  font-size: 4rem;
+  color: #7f7f7f;
+  font-weight: 400;
+  margin: 0;
+}
+
+#PostsSectionContainer #newestPosts .postsList {
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+#PostsSectionContainer #newestPosts .post {
+  width: 22rem;
+  overflow: hidden;
+  background: #fff;
+  padding: 2.5rem;
+  margin: 0 2rem 0 0;
+  float: left;
+}
+
+#PostsSectionContainer #newestPosts .post header {
+  margin: 0 0 2rem 0;
+}
+
+#PostsSectionContainer #newestPosts .post header h1,
+#PostsSectionContainer #newestPosts .post header h2 {
+  margin: 0;
+}
+
+#PostsSectionContainer #newestPosts .post header h1 {
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+#PostsSectionContainer #newestPosts .post header h2 {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+#PostsSectionContainer #newestPosts .post .postCover {
+  position: relative;
+  width: 17rem;
+  height: 17rem;
+  overflow: hidden;
+}
+
+#PostsSectionContainer #newestPosts .post .postCover > img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+}
+
+#PostsSectionContainer #newestPosts .post:nth-child(3n + 0) {
+  margin-right: 0;
+}
+
+#PostsSectionContainer .fade-enter-active,
+#PostsSectionContainer .fade-leave-active {
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+#PostsSectionContainer .fade-enter,
+#PostsSectionContainer .fade-leave-to {
+  opacity: 0;
+}
+
+#PostsSectionContainer #loadingHero {
+  height: 43rem;
+  background-color: #eee;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  -webkit-box-shadow: inset 0 0 3rem 0rem rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0 0 3rem 0rem rgba(0, 0, 0, 0.2);
+}
+
+#PostsSectionContainer #loadingPageInfo {
+  position: relative;
+  z-index: 10;
+  left: calc((100% - 70rem) / 2);
+  top: 8rem;
+  width: 35rem;
+  height: 30rem;
+}
+
+#PostsSectionContainer #loadingFeatured {
+  max-width: 70rem !important;
+  margin: 0 auto 4rem;
+  height: 20rem;
+  position: relative;
+}
+
+#PostsSectionContainer .commonPostLoading {
+  width: 33rem;
+  overflow: hidden;
+  height: 20rem;
+  margin-bottom: 10rem;
+  float: left;
+  position: relative;
+}
+
+#PostsSectionContainer .commonPostLoading:nth-child(2n + 1) {
+  margin-right: 4rem;
+}
+
+#PostsSectionContainer .loading-box {
+  background: #eee;
+  -webkit-box-shadow: 0 0 3rem 0rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 3rem 0rem rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+#PostsSectionContainer .loading-box .background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+#PostsSectionContainer .loading-box .top {
+  position: absolute;
+  top: 0;
+  height: 2rem;
+  width: 100%;
+  background: #fff;
+}
+
+#PostsSectionContainer .loading-box .middle {
+  position: absolute;
+  top: 6rem;
+  height: 2rem;
+  width: 100%;
+  background: #fff;
+}
+
+#PostsSectionContainer .loading-box .bottom {
+  position: absolute;
+  top: 10rem;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+}
+
+#PostsSectionContainer .loading-box .left {
+  position: absolute;
+  top: 0rem;
+  bottom: 0;
+  width: 2rem;
+  left: 0;
+  background: #fff;
+}
+
+#PostsSectionContainer .loading-box .right {
+  position: absolute;
+  top: 0rem;
+  bottom: 0;
+  right: 0;
+  width: 2rem;
+  background: #fff;
+}
+
+#PostsSectionContainer .loading-box .right2 {
+  position: absolute;
+  top: 7rem;
+  bottom: 0;
+  right: 0;
+  width: 5rem;
+  background: #fff;
+}
+
+@-webkit-keyframes placeHolderShimmer {
+  0% {
+    background-position: -50% 0;
+  }
+  100% {
+    background-position: 150% 0;
+  }
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -50% 0;
+  }
+  100% {
+    background-position: 150% 0;
+  }
+}
+
+#PostsSectionContainer .animated-background {
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-name: placeHolderShimmer;
+          animation-name: placeHolderShimmer;
+  background: #f6f7f8;
+  background: -webkit-gradient(linear, left top, right top, from(#eee), color-stop(50%, #ddd), to(#eee));
+  background: linear-gradient(to right, #eee 0%, #ddd 50%, #eee 100%);
+  background-size: 25% 100%;
+  background-repeat-x: no-repeat;
+}
+
+#PostsSectionContainer.produce #hero #heroContent > a {
+  background: rgba(72, 104, 74, 0.9);
+}
+
+#PostsSectionContainer.produce #hero #heroContent > a:hover {
+  background: #48684a;
+}
+
+#PostsSectionContainer.produce #hero #heroContent > a > article h1,
+#PostsSectionContainer.produce #hero #heroContent > a > article .readMore {
+  color: #9cbd6e;
+}
+
+#PostsSectionContainer.produce #categoryBrand {
+  background: rgba(72, 104, 74, 0.8);
+}
+
+#PostsSectionContainer.produce #posts .post header {
+  background: rgba(72, 104, 74, 0.8);
+}
+
+#PostsSectionContainer.produce #posts .post .showMap {
+  background: #9cbd6e;
+}
+
+#PostsSectionContainer.produce #posts .post > a:hover header {
+  background: rgba(72, 104, 74, 0.9);
+}
+
+#PostsSectionContainer.produce #newestPosts {
+  background: rgba(72, 104, 74, 0.3);
+}
+
+#PostsSectionContainer.produce #loadingHero,
+#PostsSectionContainer.produce .loading-box {
+  background: #9cbd6e;
+}
+
+#PostsSectionContainer.produce .animated-background {
+  background: #9cbd6e;
+  background: -webkit-gradient(linear, left top, right top, from(#9cbd6e), color-stop(50%, #48684a), to(#9cbd6e));
+  background: linear-gradient(to right, #9cbd6e 0%, #48684a 50%, #9cbd6e 100%);
+  background-size: 25% 100%;
+  background-repeat-x: no-repeat;
+}
+
+#PostsSectionContainer.agua #hero #heroContent > a {
+  background: rgba(183, 155, 186, 0.9);
+}
+
+#PostsSectionContainer.agua #hero #heroContent > a:hover {
+  background: #b79bba;
+}
+
+#PostsSectionContainer.agua #hero #heroContent > a > article h1,
+#PostsSectionContainer.agua #hero #heroContent > a > article .readMore {
+  color: #c0cfe4;
+}
+
+#PostsSectionContainer.agua #categoryBrand {
+  background: rgba(183, 155, 186, 0.8);
+}
+
+#PostsSectionContainer.agua #posts .post header {
+  background: rgba(183, 155, 186, 0.8);
+}
+
+#PostsSectionContainer.agua #posts .post .showMap {
+  background: #c0cfe4;
+}
+
+#PostsSectionContainer.agua #posts .post > a:hover header {
+  background: rgba(183, 155, 186, 0.9);
+}
+
+#PostsSectionContainer.agua #newestPosts {
+  background: rgba(183, 155, 186, 0.3);
+}
+
+#PostsSectionContainer.agua #loadingHero,
+#PostsSectionContainer.agua .loading-box {
+  background: #c0cfe4;
+}
+
+#PostsSectionContainer.agua .animated-background {
+  background: #c0cfe4;
+  background: -webkit-gradient(linear, left top, right top, from(#c0cfe4), color-stop(50%, #b79bba), to(#c0cfe4));
+  background: linear-gradient(to right, #c0cfe4 0%, #b79bba 50%, #c0cfe4 100%);
+  background-size: 25% 100%;
+  background-repeat-x: no-repeat;
+}
+
+#PostsSectionContainer.cuida #hero #heroContent > a {
+  background: rgba(78, 105, 147, 0.9);
+}
+
+#PostsSectionContainer.cuida #hero #heroContent > a:hover {
+  background: #4e6993;
+}
+
+#PostsSectionContainer.cuida #hero #heroContent > a > article h1,
+#PostsSectionContainer.cuida #hero #heroContent > a > article .readMore {
+  color: #199ec2;
+}
+
+#PostsSectionContainer.cuida #categoryBrand {
+  background: rgba(78, 105, 147, 0.8);
+}
+
+#PostsSectionContainer.cuida #posts .post header {
+  background: rgba(78, 105, 147, 0.8);
+}
+
+#PostsSectionContainer.cuida #posts .post .showMap {
+  background: #199ec2;
+}
+
+#PostsSectionContainer.cuida #posts .post > a:hover header {
+  background: rgba(78, 105, 147, 0.9);
+}
+
+#PostsSectionContainer.cuida #newestPosts {
+  background: rgba(78, 105, 147, 0.3);
+}
+
+#PostsSectionContainer.cuida #loadingHero,
+#PostsSectionContainer.cuida .loading-box {
+  background: #199ec2;
+}
+
+#PostsSectionContainer.cuida .animated-background {
+  background: #199ec2;
+  background: -webkit-gradient(linear, left top, right top, from(#199ec2), color-stop(50%, #4e6993), to(#199ec2));
+  background: linear-gradient(to right, #199ec2 0%, #4e6993 50%, #199ec2 100%);
+  background-size: 25% 100%;
+  background-repeat-x: no-repeat;
+}
+
+#PostsSectionContainer.comparte #hero #heroContent > a {
+  background: rgba(200, 90, 78, 0.9);
+}
+
+#PostsSectionContainer.comparte #hero #heroContent > a:hover {
+  background: #c85a4e;
+}
+
+#PostsSectionContainer.comparte #hero #heroContent > a > article h1,
+#PostsSectionContainer.comparte #hero #heroContent > a > article .readMore {
+  color: #d58766;
+}
+
+#PostsSectionContainer.comparte #categoryBrand {
+  background: rgba(200, 90, 78, 0.8);
+}
+
+#PostsSectionContainer.comparte #posts .post header {
+  background: rgba(200, 90, 78, 0.8);
+}
+
+#PostsSectionContainer.comparte #posts .post .showMap {
+  background: #d58766;
+}
+
+#PostsSectionContainer.comparte #posts .post > a:hover header {
+  background: rgba(200, 90, 78, 0.9);
+}
+
+#PostsSectionContainer.comparte #newestPosts {
+  background: rgba(200, 90, 78, 0.3);
+}
+
+#PostsSectionContainer.comparte #loadingHero,
+#PostsSectionContainer.comparte .loading-box {
+  background: #d58766;
+}
+
+#PostsSectionContainer.comparte .animated-background {
+  background: #d58766;
+  background: -webkit-gradient(linear, left top, right top, from(#d58766), color-stop(50%, #c85a4e), to(#d58766));
+  background: linear-gradient(to right, #d58766 0%, #c85a4e 50%, #d58766 100%);
+  background-size: 25% 100%;
+  background-repeat-x: no-repeat;
+}
+
+#PostsSectionContainer.aprende #hero #heroContent > a {
+  background: rgba(23, 63, 94, 0.9);
+}
+
+#PostsSectionContainer.aprende #hero #heroContent > a:hover {
+  background: #173f5e;
+}
+
+#PostsSectionContainer.aprende #hero #heroContent > a > article h1,
+#PostsSectionContainer.aprende #hero #heroContent > a > article .readMore {
+  color: #4b8f72;
+}
+
+#PostsSectionContainer.aprende #categoryBrand {
+  background: rgba(23, 63, 94, 0.8);
+}
+
+#PostsSectionContainer.aprende #posts .post header {
+  background: rgba(23, 63, 94, 0.8);
+}
+
+#PostsSectionContainer.aprende #posts .post .showMap {
+  background: #4b8f72;
+}
+
+#PostsSectionContainer.aprende #posts .post > a:hover header {
+  background: rgba(23, 63, 94, 0.9);
+}
+
+#PostsSectionContainer.aprende #newestPosts {
+  background: rgba(23, 63, 94, 0.3);
+}
+
+#PostsSectionContainer.aprende #loadingHero,
+#PostsSectionContainer.aprende .loading-box {
+  background: #4b8f72;
+}
+
+#PostsSectionContainer.aprende .animated-background {
+  background: #4b8f72;
+  background: -webkit-gradient(linear, left top, right top, from(#4b8f72), color-stop(50%, #173f5e), to(#4b8f72));
+  background: linear-gradient(to right, #4b8f72 0%, #173f5e 50%, #4b8f72 100%);
+  background-size: 25% 100%;
+  background-repeat-x: no-repeat;
+}
+
+@media screen and (min-width: 1120px) {
+  #PostsSectionContainer #hero > #heroContent {
+    padding-left: 32rem;
+  }
+  #PostsSectionContainer #posts,
+  #PostsSectionContainer #newestPosts {
+    padding-left: 32rem;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  #PostsSectionContainer #hero > #heroContent > a {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  #PostsSectionContainer #loadingPageInfo {
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  #PostsSectionContainer #posts {
+    padding: 0;
+  }
+  #PostsSectionContainer #posts #featured {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 2rem;
+  }
+  #PostsSectionContainer #posts #featured .showMap {
+    right: 2rem;
+  }
+  #PostsSectionContainer #posts #featured a header {
+    padding: 1rem 6.5rem 3rem 2rem;
+  }
+  #PostsSectionContainer #posts #featured .postCover {
+    height: 20rem;
+  }
+  #PostsSectionContainer .postsList {
+    max-width: none;
+    margin: 0;
+    padding: 0 2rem;
+  }
+  #PostsSectionContainer .postsList .post {
+    width: calc((100% - 4rem) / 2) !important;
+    margin: 0 2rem 2rem 0 !important;
+  }
+  #PostsSectionContainer .postsList .post .postCover {
+    height: 20rem;
+  }
+  #PostsSectionContainer .postsList .post:nth-child(2n + 1) {
+    margin-right: 0;
+  }
+  #PostsSectionContainer #newestPosts > header {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  #PostsSectionContainer #newestPosts .post header {
+    margin: 0;
+  }
+  #PostsSectionContainer #newestPosts .post .postCover {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #PostsSectionContainer .postsList .post {
+    float: none !important;
+    width: 100% !important;
+    margin: 0 0 2rem 0 !important;
+  }
+  #PostsSectionContainer .postsList .post .postCover {
+    height: 20rem;
+  }
+  #PostsSectionContainer .postsList .post:nth-child(2n + 1) {
+    margin-right: 0;
+  }
+}
+/*# sourceMappingURL=PostsSection.css.map */
