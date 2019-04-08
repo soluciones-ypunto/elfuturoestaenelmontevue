@@ -28,12 +28,12 @@
           </div>
 
             <transition name="fade" enter-active-class="fadeIn" leave-active-class="fadeOut">
-                <img class="heroCover" :src="pageInfo._embedded['wp:featuredmedia'][0].source_url" v-if="!loading.pageInfo">
+                <img class="heroCover" :src="pageInfo._embedded['wp:featuredmedia'][0].source_url" v-if="!loading.pageInfo" alt="">
             </transition>
         </section>
         <transition name="fade" enter-active-class="fadeIn" leave-active-class="fadeOut">
             <section id="categoryBrand" v-if="!loading.pageInfo">
-                <img :src="categoryBrand.image"/>
+                <img :src="categoryBrand.image" alt=""/>
             </section>
         </transition>
 
@@ -55,9 +55,9 @@
                     <!--<a :href="'#/'+featuredPost.datetime.getFullYear()+'/'+(featuredPost.datetime.getMonth()+1)+'/'+featuredPost.slug">-->
                         <div class="postCover">
                             <div class="postOverlay"></div>
-                            <img  class="" :src="featuredPost._embedded['wp:featuredmedia'][0].source_url"/>
+                            <img class="" :src="featuredPost._embedded['wp:featuredmedia'][0].source_url" alt=""/>
                             <transition name="fadeUp" enter-active-class="fadeInUp" leave-active-class="fadeOutDown">
-                                <img  class="" :src="featuredPost.mapURL" v-if="featuredPost.showMap" />
+                                <img  class="" :src="featuredPost.mapURL" v-if="featuredPost.showMap"  alt=""/>
                             </transition>
                         </div>
                         <header>
@@ -91,27 +91,23 @@
                     </article>
                 </transition>
                 <transition-group name="fade" enter-active-class="fadeIn" leave-active-class="fadeOut" tag="article">
-                    <article class="post" v-for="post of posts" v-if="!loading.posts" v-bind:key="post">
+                    <article class="post" v-for="post of posts" v-if="!loading.posts" v-bind:key="post.id">
                         <button class="showMap" v-on:click="post.showMap = !post.showMap"><i class="mdi mdi-map-marker"></i></button>
                         <router-link :to="{name: 'Post', params: {category: $route.params.category, type: 'post', year: post.datetime.getFullYear(), month: (post.datetime.getMonth()+1), slug: post.slug}}">
-                        <!--<a :href="'#/'+post.datetime.getFullYear()+'/'+(post.datetime.getMonth()+1)+'/'+post.slug">-->
                             <div class="postCover">
                                 <div class="postOverlay"></div>
-                                <img  class="" :src="post._embedded['wp:featuredmedia'][0].source_url"/>
+                                <img  class="" :src="post._embedded['wp:featuredmedia'][0].source_url" alt=""/>
                                 <transition name="fadeUp" enter-active-class="fadeInUp" leave-active-class="fadeOutDown">
-                                    <img  class="" :src="post.mapURL" v-if="post.showMap" />
+                                    <img  class="" :src="post.mapURL" v-if="post.showMap"  alt=""/>
                                 </transition>
                             </div>
                             <header>
                                 <h1>{{post.title.rendered}}</h1>
                                 <h2 v-if="post.tags.length > 0">{{post._embedded['wp:term'][1][0].name}}</h2>
                             </header>
-
-                        <!--</a>-->
                         </router-link>
                     </article>
                 </transition-group>
-
                 <div class="clr"></div>
             </div>
 
@@ -129,7 +125,8 @@
                                 <h2 v-if="relatedPost.tags.length > 0">{{relatedPost._embedded['wp:term'][1][0].name}}</h2>
                             </header>
                             <div class="postCover">
-                                <img  class="" :src="relatedPost._embedded['wp:featuredmedia'][0].source_url"/>
+                                <img v-if="relatedPost._embedded['wp:featuredmedia']"
+                                     :src="relatedPost._embedded['wp:featuredmedia'][0].source_url" alt=""/>
                             </div>
                         </router-link>
                     </article>
@@ -140,8 +137,12 @@
         </transition>
         <footer id="appFooter">
             <div class="footerContent">
-                <img src="static/logo1.png"/>
-                <p>Movimiento que impulsa en la región del Gran Chaco modelos de negocios que promuevan un desarrollo sustentable, competitivo e inclusivo, a través de la puesta en valor del capital natural y cultural, combinando la innovación con los saberes locales.</p>
+                <img src="static/logo1.png" alt=""/>
+                <p>
+                    Movimiento que impulsa en la región del Gran Chaco modelos de negocios que promuevan un desarrollo
+                    sustentable, competitivo e inclusivo, a través de la puesta en valor del capital natural y cultural,
+                    combinando la innovación con los saberes locales.
+                </p>
                 <div class="clr"></div>
             </div>
         </footer>
@@ -160,10 +161,10 @@ export default {
     return {
       loading: {
         component: true,
-        pageInfo: false,
-        featuredPost: false,
-        posts: false,
-        relatedPosts: false
+        pageInfo: true,
+        featuredPost: true,
+        posts: true,
+        relatedPosts: true
       },
       categoryBrand: { image: '' },
       category: {},
@@ -176,9 +177,8 @@ export default {
   methods: {
     getPosts: function () {
       this.loading.posts = true
-      HTTP.get(
-        `posts?categories=${this.category.id}&sticky=false&per_page=10&_embed`
-      )
+      HTTP
+        .get(`posts?categories=${this.category.id}&sticky=false&per_page=10&_embed`)
         .then(response => {
           var vm = this
           this.posts = response.data
@@ -206,9 +206,8 @@ export default {
 
     getFeaturedPost: function () {
       this.loading.featuredPost = true
-      HTTP.get(
-        `posts?categories=${this.category.id}&sticky=true&per_page=10&_embed`
-      )
+      HTTP
+        .get(`posts?categories=${this.category.id}&sticky=true&per_page=10&_embed`)
         .then(response => {
           var vm = this
           if (response.data.length !== 0) {
@@ -248,7 +247,8 @@ export default {
 
     getPageInfo: function () {
       this.loading.pageInfo = true
-      HTTP.get(`pages?slug=${this.category.slug}&_embed`)
+      HTTP
+        .get(`pages?slug=${this.category.slug}&_embed`)
         .then(response => {
           var vm = this
           if (response.data.length !== 0) {
@@ -284,7 +284,8 @@ export default {
 
     getRelatedPosts: function () {
       this.loading.relatedPosts = true
-      HTTP.get(`posts?categories_exclude=${this.category.id}&per_page=3&_embed`)
+      HTTP
+        .get(`posts?categories_exclude=${this.category.id}&per_page=3&_embed`)
         .then(response => {
           var vm = this
           this.relatedPosts = response.data
@@ -304,7 +305,8 @@ export default {
     getData: function () {
       this.loading.component = true
       this.setCategoryBrandStyle(this.$route)
-      HTTP.get(`categories?slug=${this.$route.params.category}`)
+      HTTP
+        .get(`categories?slug=${this.$route.params.category}`)
         .then(response => {
           var vm = this
           if (response.data.length !== 0) {
